@@ -26,17 +26,25 @@
 			margin-right: 20%;
             color:#ffffff
         }
+        .card { 
+            box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2); 
+            border-radius: 5px; 
+            backdrop-filter: blur(14px); 
+            background-color: rgba(0, 0, 0, 0.74); 
+            padding: 10px; 
+            text-align: center; 
+        } 
     </style>
 </head>
 <body>
     <div class="jumbotron">
         <ul class="nav nav-tabs container justify-content-center">
             <li id="navbar"><a href="/" id="navbar">Home</a></li>
-            <li id="navbar"><a href="/masuk" id="navbar">Masuk</a></li>
-            <li id="navbar"><a href="/daftar" id="navbar">Daftar</a></li>
+            <li id="navbar"><a href="/login" id="navbar">Masuk</a></li>
+            <li id="navbar"><a href="/register" id="navbar">Daftar</a></li>
         </ul>
         <div class="tengah">
-            <div class="card-body">
+            <div class="card">
 				<h2>Register</h2>
 				<form class="forminput" method="POST" action="">
 					{{ csrf_field() }}
