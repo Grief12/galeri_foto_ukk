@@ -41,8 +41,6 @@
         </ul>
         <div class="tengah">
             <h2>GALLERY PHOTO <br></h2>
-            <input id="search" type="text" name="search" placeholder="search all what your likes">
-            <button type="button" class="btn btn-dark">Cari</button>
         </div>
     </div>
     {{-- <div class="card-group">

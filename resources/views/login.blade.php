@@ -8,66 +8,41 @@
 	<link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css" type="text/css">
 
 	<style>	
-		body {
-		    font-family: Georgia, times new roman, Times, Merriweather, Cambria, Times, serif;
-		    font-weight: 300;
-		    font-size: 16px;
-		    line-height: 2;
-		    background: url('assets/bg.jpg') no-repeat center;
+		body{
+            background: url('assets/bg.jpg');
 		    color: #4d4b4b;
-		}
-		.centerDiv {
-			height: 100vh;
-			width: 100%;
-		}
-		.forminput{
-			margin: 10% 20% 0 25%
-		}
-		#navbar{
-			text-decoration: none;
-			color: #ffffff;
-		}
+        }
+        #navbar{
+            text-decoration: none;
+            color:#ffffff;
+            margin: 3%;
+            display: block;
+        }
+        .tengah{
+            float: center;
+            text-align: center;
+            padding-top: 5%;
+			margin-left: 20%;
+			margin-right: 20%;
+            color:#ffffff
+        }
+		.card { 
+            box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2); 
+            border-radius: 5px; 
+            backdrop-filter: blur(14px); 
+            background-color: rgba(0, 0, 0, 0.74); 
+            padding: 10px; 
+            text-align: center; 
+        } 
 	</style>	
 </head>
 <body>
-	<div class="container-fluid">	
+	{{-- <div class="container-fluid">	
 		<div class="row centerDiv">
 			<div class="col-sm-12 my-auto">
 				<div class="card border-0 ">
 				  <div class="row">
 				    <div class="col-md-8">
-						<div class="container-fluid carousel-contain py-5">
-							<div class="container">
-							 <div id="carouselExampleIndicators" class="carousel slide col-lg-8 offset-lg-2" data-bs-ride="carousel">
-							   <div class="carousel-indicators">
-								 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-								 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-								 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-							   </div>
-							   <div class="carousel-inner">
-								 <div class="carousel-item active">
-								   <img src="assets/background.jpg" class="d-block w-100" alt="...">
-								 </div>
-								 <div class="carousel-item">
-								   <img src="assets/bg.jpg" class="d-block w-100" alt="...">
-								 </div>
-								 <div class="carousel-item">
-								   <img src="assets/wp.jpeg" class="d-block w-100" alt="...">
-								 </div>
-							   </div>
-							   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-								 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								 <span class="visually-hidden">Previous</span>
-							   </button>
-							   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-								 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-								 <span class="visually-hidden">Next</span>
-							   </button>
-							 </div>
-							</div>
-							</div>
-				    </div>
-				    <div class="col-md-4">
 				      <div class="card-body">
 				      	<div class="mb-3 text-center">
 				      		<img src="assets/logo.png" class="img-fluid" width="70">
@@ -85,7 +60,7 @@
 			      		  </div>
 			      		  <button type="submit" class="btn btn-primary w-100" value="Login">Login</button>
 							<div class="mb-3">
-								<div >Belum punya akun? <a href="/daftar">Register</a></div>
+								<div >Belum punya akun? <a href="/register">Register</a></div>
 								</div>	
 			      		</form>
 				      </div>
@@ -94,7 +69,39 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
+	<div class="jumbotron">
+        <ul class="nav nav-tabs container justify-content-center">
+            <li id="navbar"><a href="/" id="navbar">Home</a></li>
+            <li id="navbar"><a href="/login" id="navbar">Masuk</a></li>
+            <li id="navbar"><a href="/register" id="navbar">Daftar</a></li>
+        </ul>
+        <div class="tengah">
+			<div class="card">
+				<div class="card-body ">
+					<h2>Login</h2>
+					<form class="forminput" method="POST" action="">
+						{{ csrf_field() }}
+						<br><br>
+						<div class="row mb-3">
+							<label for="username" class="col-sm-2 col-forn-label" style="color: #ffffff;">Username</label>
+							<div class="col-sm-10">
+								<input name="username" type="text" class="form-control" id="inputUsername">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label for="password" class="col-sm-2 col-forn-label" style="color: #ffffff;">Password</label>
+							<div class="col-sm-10">
+								<input name="password" type="password" class="form-control" id="inputPassword">
+							</div>
+						</div>
+						<button style="float: right;" type="submit" class="btn btn-dark">LOGIN</button>
+					</form>
+				</div>
+			</div>
+        </div>
+    </div>
+
 	<!-- JavaScript -->
 	<script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js">
 	</script>
