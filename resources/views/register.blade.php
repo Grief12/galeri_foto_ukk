@@ -67,7 +67,7 @@
 							<input name="password" type="password" class="form-control" id="inputPassword">
 						</div>
 					</div>
-					<button style="float: right;" type="submit" class="btn btn-dark">REGISTER</button>
+					<button style="float: right;" type="submit" class="btn btn-primary">REGISTER</button>
 				</form>
 			</div>
         </div>

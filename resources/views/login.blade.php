@@ -95,7 +95,7 @@
 								<input name="password" type="password" class="form-control" id="inputPassword">
 							</div>
 						</div>
-						<button style="float: right;" type="submit" class="btn btn-dark">LOGIN</button>
+						<button style="float: right;" type="submit" class="btn btn-primary">LOGIN</button>
 					</form>
 				</div>
 			</div>
