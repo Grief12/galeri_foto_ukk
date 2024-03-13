@@ -67,17 +67,17 @@
 							<input name="password" type="password" class="form-control" id="inputPassword">
 						</div>
 					</div>
-					<button style="float: right;" type="submit" class="btn btn-dark">REGISTER</button>
+					<button style="float: right;" type="submit" class="btn btn-primary">REGISTER</button>
 				</form>
 			</div>
         </div>
     </div>
-</body>
-</html>
-@php
+    @php
     $status = $status ?? "";
     if ($status == 401) {
         # code...
         echo"<script>window.alert('Username sudah digunakan')</script>";
     }
 @endphp
+</body>
+</html>

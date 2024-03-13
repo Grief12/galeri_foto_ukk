@@ -1,0 +1,22 @@
+.card {
+    display: flex; /* Gunakan flexbox */
+    width: 1000px; /* Atur lebar kartu */
+    margin: 10px; /* Atur jarak antar kartu */
+    border: 1px solid #ccc; /* Atur garis tepi kartu */
+    border-radius: 25px; /* Atur sudut bulatan kartu */
+    overflow: hidden; /* Pastikan gambar tidak melampaui batas kartu */
+}
+.card-content {
+    flex: 1; /* Bagian ini akan memenuhi sisa ruang yang tersedia */
+    padding: 10px;
+}
+.card-image {
+    width: 500px; /* Isi lebar gambar */
+    height: auto; /* Biarkan tinggi gambar disesuaikan secara otomatis */
+    object-fit: cover; /* Atur agar gambar memenuhi kotak */
+    object-position: center; /* Atur posisi gambar di dalam kotak */
+}
+.tengah{
+        float: center;
+        padding-top: 3%;
+}

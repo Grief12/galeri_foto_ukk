@@ -1,0 +1,71 @@
+
+li, a, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 10%;
+    background: linear-gradient(90deg, #00095D 0%, #232F55 100%);
+}
+
+.logo{
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.nav__links{
+    list-style: none;
+}
+
+.nav__links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover{
+    color: #FF4495;
+}
+
+button{
+    padding: 9px 25px;
+    background-color: #FF4495;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover{
+    background-color: #000000;
+    color: #FF4495;
+}
+@media screen and (max-width: 600px){
+	header a:not(:first-child){display:none;}
+	header a.icon{
+		float:right;
+		display:block;
+	}
+}
+@media screen and (max-width: 600px){
+	header.responsive{position:relative;}
+	header.responsive.icon{
+		position:absolute;
+		right:0;
+		top:0;
+	}
+	header.responsive a{
+		float:none;
+		display: block;
+		text-align: left;
+	}
+}
