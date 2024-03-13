@@ -7,51 +7,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
     <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('style/grid.css')}}" type="text/css">
 
     <style type="text/css">
         body{
-            background: url('assets/bg.jpg');
-		    color: #4d4b4b;
-        }
-        #navbar{
-            text-decoration: none;
-            color:#ffffff;
-            margin: 3%;
-            display: block;
+            background-color: #f5f5f5;
         }
         .tengah{
             float: center;
             text-align: center;
-            padding-top: 5%;
-            color:#ffffff
+            padding-bottom: 3%;
+            padding-top: 3%; 
+            color:#FF4495;
         }
-        #search{
-            margin-top: 1%;
-            padding: 1% 25%;
-            border: 1px solid #dbdbdb;
+        h3 {
+            margin: 0 0 10px 0;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 56px;
+            color: color:#FF4495;
         }
+        
     </style>
 </head>
 <body>
-    <div class="jumbotron">
-        <ul class="nav nav-tabs container justify-content-center">
-            <li id="navbar"><a href="/" id="navbar">Home</a></li>
-            <li id="navbar"><a href="/login" id="navbar">Masuk</a></li>
-            <li id="navbar"><a href="/register" id="navbar">Daftar</a></li>
-        </ul>
-        <div class="tengah">
-            <h2>GALLERY PHOTO <br></h2>
-        </div>
-    </div>
-    {{-- <div class="card-group">
-    @foreach ($gambar as $g)
-        <div class="card" style="width: 50rem; margin:2% 3% 3% 2%   ;">
-            <img src="{{url('images/'.$g->file)}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text"><small class="text-muted">{{$g->keterangan}}</small></p>
+    <x-navbarIndex/>
+    <x-hero/>
+        <div class="jumbotron">
+            <div class="tengah">
+                <h3>GALERI FOTO </h3>
             </div>
         </div>
-    @endforeach
-    </div>  --}}
+        <div class="ms-3 me-3 mt-3">
+            <section class="flex" id="photos">
+            @foreach ($gambar as $a)
+            <a href="detail/{{$a['id']}}">
+                <div class="overflow-y-hidden">
+                    <img src="@php echo asset($a['lokasi_file']);@endphp" class="img-fluid-border" alt="..." style="border-radius: 25px">
+                </div>
+                <div class="photos-info">
+                    <h4>username</h4>
+                    <p>Deskripsi Foto</p>
+                </div>
+            </a>
+            @endforeach
+            </section>
+        </div> 
 </body>
 </html>

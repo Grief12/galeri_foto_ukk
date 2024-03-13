@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('gambars', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_foto');
             $table->text('deskripsi');
             $table->string('lokasi_file');
+            $table->integer('userId');
+            $table->integer('albumId');
             $table->timestamps();
         });
     }

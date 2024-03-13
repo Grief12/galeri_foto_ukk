@@ -72,12 +72,12 @@
 			</div>
         </div>
     </div>
-</body>
-</html>
-@php
+    @php
     $status = $status ?? "";
     if ($status == 401) {
         # code...
         echo"<script>window.alert('Username sudah digunakan')</script>";
     }
 @endphp
+</body>
+</html>
