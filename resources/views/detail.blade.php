@@ -30,21 +30,21 @@
     </style>
 </head>
 <body>
-    @if ($gambar == false)
+    @if ($foto == false)
         <p>Foto Tidak Ada</p>
-    @elseif ($gambar != false)
+    @elseif ($foto != false)
     <div class="container py-5 h-100">
         <div class="card p-5">
             <div class="row">
                 <div class="container col">
                 <img src="@php 
-                echo asset($gambar['lokasi_file']);
+                echo asset($foto['lokasi_file']);
                 @endphp" class="img-fluid" alt="" >
                 </div>
                 <div class="container col">
-                    <p class="fw-bold fs-4">{{$gambar['deskripsi']}}</p>
-                    <p class="fs-5">Posted By</p>
-                    <p class="fs-6">{{$gambar->pengguna->username}}</p>
+                    <p class="fw-bold fs-4">{{$foto->pengguna->username}}</p>
+                    <p class="fs-5">{{$foto['created_at']->format('H:i')}}-{{$foto['created_at']->format('d F Y')}}</p>
+                    <p class="fs-6">{{$foto['deskripsi']}}</p>
                     @if (Session::get('id') != null && Session::get('username') != null)
                     <div class="row g-2">
                         <div class="col">
@@ -65,7 +65,7 @@
                                         </div>
                                     @endif
                                     <div class="col">
-                                        <p id="likeCount">{{$gambar->like_gambars->count()}}</p>
+                                        <p id="likeCount">{{$foto->like_fotos->count()}}</p>
                                     </div>
                                 </div>
                             </label>
@@ -73,7 +73,7 @@
                         <div class="col">
                             <h6 style="opacity: 0">zzz</h6>
                             <label class="form-check-label">
-                                <a class="text-decoration-none text-dark" href="#komentar">
+                                <a class="text-decoration-none text-dark" href="/download/{{$foto->id}}">
                                     <div class="row g-1">
                                         <div class="col">
                                             <i class="fas fa-solid fa-download"></i>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="container border-top border-2 overflow-auto" style="max-height: 450px" id="komenContainer">
-                        @foreach ($gambar->komentars as $a)
+                        @foreach ($foto->komentars as $a)
                             <p class="fs-6 fw-bold mt-3">{{$a->pengguna->username}}</p>
                             <p>{{$a->komentar}}</p>
                         @endforeach
@@ -123,7 +123,7 @@
             var komenValue = document.getElementById("fieldKomentar").value;
             if(check_field == true){
                  $.ajax({
-                 url: "{{route('addKomen.action', ['id' => $gambar->id])}}", 
+                 url: "{{route('addKomen.action', ['id' => $foto->id])}}", 
                  method: "POST",
                  data: {
                      _token: csrfToken,
@@ -154,7 +154,7 @@
             if(isChecked == true) {
                 document.getElementById("likeCount").textContent = likeCount +=1;
                 $.ajax({
-            url: "{{route('like.action', ['id' => $gambar->id])}}",
+            url: "{{route('like.action', ['id' => $foto->id])}}",
             method: "POST",
             data: {
                 _token: csrfToken,
@@ -172,7 +172,7 @@
             else {
                 document.getElementById("likeCount").textContent = likeCount -=1;
                 $.ajax({
-            url: "{{route('unlike.action', ['id' => $gambar->id])}}",
+            url: "{{route('unlike.action', ['id' => $foto->id])}}",
             method: "POST",
             data: {
                 _method: "DELETE",

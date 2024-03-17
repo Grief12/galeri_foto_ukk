@@ -2,29 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\http\Request;
+use Illuminate\Http\Request;
 use App\Models\foto;
 use App\Models\pengguna;
 use App\Models\album;
 use App\Http\Controllers\SessionnnController;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\DB;
-class HomeController extends Controller
+
+class SearchController extends Controller
 {
-    public function homeView(Request $req){
+    public function searchView(Request $req){
         $uid = Session::get('id');
         $s1 = new SessionnnController;
         if($s1->sessionCheck() == false){
             return redirect()->intended('/login');
         } else {
             $album = album::get()->where('userid',$uid);
-            return view('home',['album'=>$album,'foto'=>foto::orderBy(DB::raw('RAND()'))->get()]);
+            return view('search',['album'=>$album,'foto'=>foto::get()]);
         }
     }
-
-    public function indexView(Request $req){
-        return view('/index',['foto'=>foto::orderBy(DB::raw('RAND()'))->get()]);
-    }
-    
 }

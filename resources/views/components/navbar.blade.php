@@ -11,15 +11,21 @@
     <header>
         <img src="{{asset('assets/logo.png')}}" alt="logo" height="60px">
         <nav>
-            <ul class="nav__links">
-                <li><a href="/home">Home</a></li>
-                <li><a href="#">Search</a></li>
-                <li><a href="/profile">Profile</a></li>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="/home">Beranda</a></li>
+                <li><a href="/search">Cari</a></li>
+                <li><a href="/profile">Profil</a></li>
                 
             </ul>
         </nav>
-        <a href="/logout" class="cta"><button>Logout</button></button></a>
+        <a href="/logout" class="cta"><button>Keluar</button></button></a>
 </header>
+<script>
+    function toggleDropdown() {
+        var navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("show");
+    }
+    </script>
 </body>
 </html>
    

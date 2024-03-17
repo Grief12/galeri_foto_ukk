@@ -12,9 +12,10 @@
     <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="floatingButton">
       Buat album
     </button>
-    <button type="button" data-bs-toggle="modal" data-bs-target="#uploadgambar" id="floatingButton2">
+    <button type="button" data-bs-toggle="modal" data-bs-target="#uploadFoto" id="floatingButton2">
       Posting Foto
     </button>
   </div>  
 </body>
 </html>
+

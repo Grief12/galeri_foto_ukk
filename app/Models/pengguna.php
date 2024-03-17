@@ -13,8 +13,8 @@ class pengguna extends Model
         'id',
         'created_at'];
     
-    public function gambars(){
-        return $this->hasMany(gambar::class,'userId','id');
+    public function fotos(){
+        return $this->hasMany(foto::class,'userId','id');
     }
     
     public function komentars(){

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -23,15 +24,18 @@ use App\Http\Controllers\ProfileController;
 Route::get('/login',[LoginController::class, 'loginView']);
 Route::post('/login',[LoginController::class,'loginAction']);
 
-//tampilan index
-Route::get('/',[HomeController::class,'indexView']);
-
 //register
 Route::get('/register',[LoginController::class,'registView']);
 Route::post('/register',[LoginController::class,'registAction']);
 
-//tampilan home
+//index
+Route::get('/',[HomeController::class,'indexView']);
+
+//home
 Route::get('/home',[HomeController::class,'homeView']);
+
+//search
+Route::get('/search',[SearchController::class,'searchView']);
 
 //logout
 Route::get('/logout',[LoginController::class,'logout']);
@@ -41,6 +45,8 @@ Route::post('/make-album',[AlbumController::class,'makeAlbum']);
 Route::post('/uploadgambar',[AlbumController::class,'uploadGambar']);
 Route::get('/album/{id_album}',[AlbumController::class,'detailAlbum']);
 Route::delete('/hapusfoto/{id}',[AlbumController::class,'hapusFoto'])->name('hapusFoto');
+Route::delete('/deleteAlbum',[AlbumController::class,'deleteAlbum'])->name('deleteAlbum');
+Route::get('/download/{id}', [DetailController::class, 'downloadFoto']);
 
 //profile
 Route::get('/profile',[ProfileController::class,'profileView']);
@@ -54,6 +60,3 @@ Route::delete('/detail/{id}/unlike', [DetailController::class, 'unLike'])->name(
 
 //komentar
 Route::post('/detail/{id}/komentar', [DetailController::class, 'addKomentar'])->name('addKomen.action');
-
-//download
-Route::get('/detail/{file}','DetailController@download')->name('file.download');

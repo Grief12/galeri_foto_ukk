@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class gambar extends Model
+class foto extends Model
 {
-    protected $table = "gambars";
+    protected $table = "fotos";
 
     protected $guarded = ['id','created_at'];
     public function pengguna(){
@@ -16,10 +16,10 @@ class gambar extends Model
     public function komentars(){
         return $this->morphMany(Komentar::class,'komentarable','komentartype','fotoId');
     }
-    public function like_gambars(){
+    public function like_fotos(){
         return $this->morphMany(LikeFoto::class,'likefotoable','liketype','fotoId');
     }
-    public function gambarable(){
+    public function fotoable(){
         return $this->morphTo();
     }
     public function albums(){

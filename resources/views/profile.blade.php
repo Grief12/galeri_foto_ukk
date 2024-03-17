@@ -6,6 +6,7 @@
     <title>Profile</title>
     <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('style/grid.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}"/>
     <style type="text/css">
        body{
         background: url('assets/bg.jpg');
@@ -89,6 +90,31 @@
         </div>
       </div>
       {{-- end modal  --}}
+
+      {{-- modal 3 warning untuk hapus --}}
+      <div class="modal fade" id="deletePhoto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <form action="{{route('deleteAlbum')}}" method="post">
+          @csrf
+          @method('DELETE')
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Apakah anda yakin ingin menghapus album?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" name="idAlbum" id="albumIdd">
+              Menghapus album akan otomatis menghapus semua foto di dalam nya, Lanjukan?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Batal</button>
+              <button type="submit" class="btn btn-danger">Oke</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{-- end modal 3 --}}
     
     {{--Card Profile --}}
     <div class="container py-5 h-100">
@@ -98,7 +124,7 @@
             <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
               <img src="assets/logo.png" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width:150px; z-index:1">
-              <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" style="z-index: 1;">Edit Profile</button>
+              
             </div>
             <div class="ms-3" style="margin-top: 130px;">
             <h5>{{$akun->username}}</h5>
@@ -109,15 +135,7 @@
               <div class="d-flex justify-content-end text-center py-1">
                 <div>
                   <p class="mb-1 h5"></p>
-                  <p class="small text-muted mb-0"></p>
-                </div>
-                <div class="px-3">
-                  <p class="mb-1 h5"></p>
-                  <p class="small text-muted mb-0"></p>
-                </div>
-                <div>
-                  <p class="mb-1 h5"></p>
-                  <p class="small text-muted mb-0"></p>
+                  <p class="small text-muted mb-0">Postingan Saya</p>
                 </div>
               </div>
             </div>
@@ -125,10 +143,10 @@
               <div class="d-flex align-items-center mb-4">
                 {{-- <p class="lead fw-normal mb-0">My Album</p> --}}
                   @foreach ($album as $a)
-                <div class="container card col-2 m-1 text-center m-2">
+                <div class="container card col-3 m-1 text-center m-2">
                   <a class="text-decoration-none " href="album/{{ $a['id'] }}" style="color: black">
                     <div class="card-img-top mt-4">
-                      <img src="assets/logo.png" width="75px" style="margin-bottom:5px;" />
+                      <img src="assets/album.png" width="75px" style="margin-bottom:5px;" />
                     </div>
                     <div class="card-body container text-truncate">
                       @php
@@ -136,6 +154,12 @@
                     @endphp
                     </div>
                   </a>
+                    <div class="row p-1">
+                      <div class="col">
+                        <i class="fas fa-trash text-danger" onclick="deleteAlbum('{{$a['id']}}')" data-bs-toggle="modal" data-bs-target="#deletePhoto" style="cursor: pointer">
+                      </i>
+                      </div>
+                    </div>
                 </div>
                 @endforeach
               </div>
@@ -150,12 +174,17 @@
         Buat album
       </button>
       <button type="button" data-bs-toggle="modal" data-bs-target="#uploadgambar" id="floatingButton2">
-        Posting Foto
+        Unggah Foto
       </button>
     </div>
-  <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js">
+  <script src="{{asset('bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
+  <script src="{{asset('jquery/jquery.min.js')}}"></script>
+  <script>
+    function deleteAlbum(id){
+        document.getElementById("albumIdd").value = id;
+      }
   </script>
-  <script src="bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js">
-	</script>
 </body>
 </html>
+
