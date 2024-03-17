@@ -18,8 +18,7 @@ class HomeController extends Controller
         if($s1->sessionCheck() == false){
             return redirect()->intended('/login');
         } else {
-            $album = album::get()->where('userid',$uid);
-            return view('home',['album'=>$album,'foto'=>foto::orderBy(DB::raw('RAND()'))->get()]);
+            return view('home',['foto'=>foto::orderBy(DB::raw('RAND()'))->get()]);
         }
     }
 

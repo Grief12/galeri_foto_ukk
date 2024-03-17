@@ -7,6 +7,7 @@ use App\Models\album;
 use App\Models\foto;
 use Illuminate\Support\Facades\File;
 
+
 class AlbumController extends Controller
 {
     private $ekstensi = ['jpg','jpeg','png'];

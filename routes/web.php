@@ -36,6 +36,7 @@ Route::get('/home',[HomeController::class,'homeView']);
 
 //search
 Route::get('/search',[SearchController::class,'searchView']);
+Route::post('search',[SearchController::class,'cari'])->name('cari');
 
 //logout
 Route::get('/logout',[LoginController::class,'logout']);
