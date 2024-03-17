@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\foto;
 use Illuminate\http\Request;
-use App\Models\gambar;
 use App\Models\Pengguna;
 use App\Models\album;
 use App\Http\Controllers\SessionnnController;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -21,7 +19,7 @@ class ProfileController extends Controller
         } else {
             $album = album::where('userid', Session::get('id'))->get();
             $user = pengguna::firstwhere('id',Session::get('id'));
-            return view('/profile',['album'=>$album,'gambar'=>gambar::get(),'akun'=>$user]);
+            return view('/profile',['album'=>$album,'foto'=>foto::get(),'akun'=>$user]);
         }
     }
 }

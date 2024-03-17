@@ -41,7 +41,7 @@
 	$stats = $status ?? "";
 		if ($stats == 404) {
 			# code...
-			echo"<scipt s>window.alert('Akun Tidak Ditemukan')</scipt>";
+			echo"<scipt>window.alert('Akun Tidak Ditemukan')</scipt>";
 		}
 		if ($stats == 403) {
 			# code...

@@ -12,7 +12,7 @@ class album extends Model
         'id',
         'created_at'
     ];
-    public function gambars(){
-        return $this->morphMany(gambar::class,'gambarable','gambartype','albumId');
+    public function fotos(){
+        return $this->morphMany(foto::class,'fotoable','fototype','albumId');
     }
 }

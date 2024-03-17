@@ -52,7 +52,7 @@
                     @endphp" class="card-img-top" alt="...">
                     <div class="card-body">
                        <h5 class="card-title">{{$a['deskripsi']}}</h5>
-                       <p class="card-text text-truncate">{{$a['created_at']}}</p>
+                       <p class="card-text text-truncate">{{$a['created_at']->format('H:i')}}-{{$a['created_at']->format('d F Y')}}</p>
                     </div>
                  </div>
                 </div>

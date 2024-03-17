@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\gambar;
-use App\Http\Requests\StoregambarRequest;
-use App\Http\Requests\UpdategambarRequest;
+use App\Models\foto;
+use App\Http\Requests\StorefotoRequest;
+use App\Http\Requests\UpdatefotoRequest;
 
-class GambarController extends Controller
+class FotoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class GambarController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoregambarRequest $request)
+    public function store(StorefotoRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class GambarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(gambar $gambar)
+    public function show(foto $foto)
     {
         //
     }
@@ -43,7 +43,7 @@ class GambarController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(gambar $gambar)
+    public function edit(foto $foto)
     {
         //
     }
@@ -51,7 +51,7 @@ class GambarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdategambarRequest $request, gambar $gambar)
+    public function update(UpdatefotoRequest $request, foto $foto)
     {
         //
     }
@@ -59,7 +59,7 @@ class GambarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(gambar $gambar)
+    public function destroy(foto $foto)
     {
         //
     }

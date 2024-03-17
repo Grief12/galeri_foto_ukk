@@ -39,7 +39,7 @@
 <body>
     <div class="jumbotron">
         <ul class="nav nav-tabs container justify-content-center">
-            <li id="navbar"><a href="/" id="navbar">Home</a></li>
+            <li id="navbar"><a href="/" id="navbar">Beranda</a></li>
             <li id="navbar"><a href="/login" id="navbar">Masuk</a></li>
             <li id="navbar"><a href="/register" id="navbar">Daftar</a></li>
         </ul>
