@@ -8,6 +8,7 @@ use App\Models\pengguna;
 use App\Models\album;
 use App\Http\Controllers\SessionnnController;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
@@ -17,8 +18,14 @@ class SearchController extends Controller
         if($s1->sessionCheck() == false){
             return redirect()->intended('/login');
         } else {
-            $album = album::get()->where('userid',$uid);
-            return view('search',['album'=>$album,'foto'=>foto::get()]);
+            return view('search',['foto'=>foto::orderBy(DB::raw('RAND()'))->get()]);
         }
+    }
+
+    public function cari(Request $req){
+        $keyword = $req->get('keyword');
+        $results = foto::where('deskripsi','like','%'.$keyword.'%')->get();
+
+        return view('search',['hasil'=>$results]);
     }
 }
