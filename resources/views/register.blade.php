@@ -37,6 +37,12 @@
     </style>
 </head>
 <body>
+    @php
+    $status = $status ?? "";
+    if ($status == 401) {
+        echo "<script>window.alert('Username sudah digunakan')</script>";
+    }
+    @endphp
     <div class="jumbotron">
         <ul class="nav nav-tabs container justify-content-center">
             <li id="navbar"><a href="/" id="navbar">Beranda</a></li>
@@ -72,12 +78,5 @@
 			</div>
         </div>
     </div>
-    @php
-    $status = $status ?? "";
-    if ($status == 401) {
-        # code...
-        echo"<script>window.alert('Username sudah digunakan')</script>";
-    }
-@endphp
 </body>
 </html>

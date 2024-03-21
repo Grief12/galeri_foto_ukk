@@ -55,13 +55,23 @@ class LoginController extends Controller
     }
     public function registAction(Request $req){
         $nm = explode ("@", $req->email);
+        try {
         pengguna::create([
             'username'=>$req->username,
             'email'=>$req->email,
             'password'=>Hash::make($req->password),
             'nama_lengkap'=>$nm[0]
         ]);
-        return redirect()->intended('/login');
+        return redirect()->intended('/login')->with([
+            'status'=>400,
+            'message'=>"Akun berhasil dibuat"
+        ]);
+        } catch (\Exception $e) {
+            return view('register',[
+                'status'=>401,
+                'message'=>"username sudah digunakan"
+            ]);
+        }
     }
 
     //logout

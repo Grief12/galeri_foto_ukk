@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{asset('style/grid.css')}}" type="text/css">
     <style type="text/css">
         body{
-          /* background: linear-gradient(90deg, #FFBE98 0%, #ebd9b4 100%); */
           background: url('assets/bg.jpg');
 		      color: #4d4b4b;
         }
@@ -40,14 +39,15 @@
     <section class="flex" id="photos">
     @if (isset($hasil))
     @foreach ($hasil as $a)
-    <a href="detail/{{$a['id']}}">
+    <a class="text-decoration-none" href="detail/{{$a['id']}}">
       <div class="overflow-y-hidden">
-          <img src="@php echo asset($a['lokasi_file']);@endphp" class="img-fluid-border" alt="..." style="border-radius: 25px">
+        <img src="@php
+      echo asset($a['lokasi_file']);
+    @endphp" class="img-fluid border" alt="..." style="border-radius: 25px">
+    <h6 class="text-truncate text-dark fw-bold ps-2"></h6>
       </div>
     </a>
   @endforeach
-    @else
-      
     @endif
     </section>
   </div>

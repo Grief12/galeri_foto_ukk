@@ -38,19 +38,16 @@
 </head>
 <body>
 	@php
-	$stats = $status ?? "";
-		if ($stats == 404) {
-			# code...
-			echo"<scipt>window.alert('Akun Tidak Ditemukan')</scipt>";
-		}
-		if ($stats == 403) {
-			# code...
-			echo"<script>window.alert('Username atau Password salah')</script>";
-		}
-		if (Session::get('status') == 400) {
-			# code...
-			echo"<script>window.alert('Akun Berhasil Dibuat')</script>";
-		}
+$stats = $status ?? "";
+    if($stats == 404){
+        echo "<script>window.alert('Akun Tidak Ditemukan')</script>";
+    }
+    if($stats == 403){
+        echo "<script>window.alert('Username atau Password Salah')</script>";
+    }
+    if (Session::get('status') == 400) {
+        echo "<script>window.alert('Akun berhasil dibuat')</script>";
+    }
 @endphp
 	<div class="jumbotron">
         <ul class="nav nav-tabs container justify-content-center">

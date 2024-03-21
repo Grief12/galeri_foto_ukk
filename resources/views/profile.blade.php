@@ -54,7 +54,7 @@
 <body>
      <x-navbar/>
      <x-modalUnggah/>
-      {{-- Modal  --}}
+      {{-- Modal upload gambar --}}
       <div class="modal fade" id="uploadgambar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <form action="/uploadgambar" method="POST" enctype="multipart/form-data">
@@ -67,9 +67,9 @@
             <div class="modal-body container">
               <div class="mb-3">
                 <label for="deskripsi">Deskripsi</label>
-                <input class="form-control" type="text" name="deskripsi" id="deskripsi" placeholder="Deskripsi">
+                <input class="form-control" type="text" name="deskripsi" id="deskripsi" placeholder="Deskripsi" required>
                 <label for="formFile" class="form-label">Default file input example</label>
-                <input class="form-control" type="file" id="formFile" name="foto">
+                <input class="form-control" type="file" id="formFile" name="foto" required>
               </div>              
               <label for="AlbumName">Pilih Album</label>
               <select name="AlbumName" class="form-select">
@@ -83,14 +83,13 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              <input type="submit" class="btn text-light" style="background-color: black" value="Posting">
+              <input type="submit" class="btn text-light" style="background-color: black" value="Unggah">
             </form>
             </div>
           </div>
         </div>
       </div>
       {{-- end modal  --}}
-
       {{-- modal 3 warning untuk hapus --}}
       <div class="modal fade" id="deletePhoto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -124,7 +123,6 @@
             <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
               <img src="assets/logo.png" alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2" style="width:150px; z-index:1">
-              
             </div>
             <div class="ms-3" style="margin-top: 130px;">
             <h5>{{$akun->username}}</h5>
@@ -140,10 +138,9 @@
               </div>
             </div>
             <div class="card-body p-4 text-black">
-              <div class="d-flex align-items-center mb-4">
-                {{-- <p class="lead fw-normal mb-0">My Album</p> --}}
-                  @foreach ($album as $a)
-                <div class="container card col-3 m-1 text-center m-2">
+              <div class="row align-items-center mb-4">
+                @foreach ($album as $a)
+                <div class="container card col-2 m-1 text-center m-2">
                   <a class="text-decoration-none " href="album/{{ $a['id'] }}" style="color: black">
                     <div class="card-img-top mt-4">
                       <img src="assets/album.png" width="75px" style="margin-bottom:5px;" />
@@ -185,6 +182,18 @@
         document.getElementById("albumIdd").value = id;
       }
   </script>
+  @php
+  if (Session::get('status_code') == 401) {
+    echo "<script>
+      Swal.fire({
+        icon: 'warning',
+        title: 'Nama Album Sudah Digunakan',
+        text: 'Harap ganti Nama Album'
+      });
+      </script>";
+
+  }
+  @endphp
 </body>
 </html>
 

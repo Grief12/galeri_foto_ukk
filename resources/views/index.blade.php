@@ -41,11 +41,14 @@
         <div class="ms-3 me-3 mt-3">
             <section class="flex" id="photos">
             @foreach ($foto as $a)
-            <a href="detail/{{$a['id']}}">
+            <a class="text-decoration-none" href="detail/{{$a['id']}}">
                 <div class="overflow-y-hidden">
-                    <img src="@php echo asset($a['lokasi_file']);@endphp" class="img-fluid-border" alt="..." style="border-radius: 25px">
+                  <img src="@php
+                echo asset($a['lokasi_file']);
+              @endphp" class="img-fluid border" alt="..." style="border-radius: 25px">
+              <h6 class="text-truncate text-dark fw-bold ps-2"></h6>
                 </div>
-            </a>
+              </a>
             @endforeach
             </section>
         </div> 
