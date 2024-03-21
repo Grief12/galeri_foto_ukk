@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('style/navbar.css')}}" type="text/css">
     <title>Document</title>
 </head>
 <body>
-    <header>
+    <header class="sticky-top">
         <img src="{{asset('assets/logo.png')}}" alt="logo" height="60px">
         <nav>
             <ul class="nav__links" id="navLinks">
@@ -19,13 +20,7 @@
             </ul>
         </nav>
         <a href="/logout" class="cta"><button>Keluar</button></button></a>
-</header>
-<script>
-    function toggleDropdown() {
-        var navLinks = document.getElementById("navLinks");
-        navLinks.classList.toggle("show");
-    }
-    </script>
+    </header> 
 </body>
 </html>
    

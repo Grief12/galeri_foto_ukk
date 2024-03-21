@@ -11,7 +11,8 @@
     <title>Detail</title>
     <style>
         body{
-            background: linear-gradient(90deg, #00095D 0%, #232F55 100%);
+            background: url('{{asset('assets/bg.jpg')}}');
+		      color: #4d4b4b;
         }
         .image-container{
             height: 250px;

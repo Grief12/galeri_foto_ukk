@@ -48,6 +48,8 @@ Route::get('/album/{id_album}',[AlbumController::class,'detailAlbum']);
 Route::delete('/hapusfoto/{id}',[AlbumController::class,'hapusFoto'])->name('hapusFoto');
 Route::delete('/deleteAlbum',[AlbumController::class,'deleteAlbum'])->name('deleteAlbum');
 Route::get('/download/{id}', [DetailController::class, 'downloadFoto']);
+Route::put('/editFoto/{id}',[AlbumController::class,'editFoto'])->name('editFoto');
+
 
 //profile
 Route::get('/profile',[ProfileController::class,'profileView']);

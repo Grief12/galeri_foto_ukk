@@ -19,7 +19,7 @@ class AlbumController extends Controller
                 'userid' => $req->session()->get('id'),
             ]);
             return back();
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
               return redirect()->back()->with([
                   'status_code' => 401,
                   'message' => 'album sudah ada'
@@ -50,7 +50,7 @@ class AlbumController extends Controller
                 return redirect()->back()->with([
                     'status'=>200
                 ]);
-            } catch (Exception $e){
+            } catch (\Exception $e){
                 echo $e->getMessage();
             }
         } else {
@@ -66,7 +66,12 @@ class AlbumController extends Controller
         unlink($foto->lokasi_file);
         return back();
     }
-
+    public function editFoto(Request $req,$id){
+        $foto = foto::findOrFail($id);
+        $foto->deskripsi = $req->input('deskripsi');
+        $foto->save;
+        return redirect()->back()->with('sukses');
+    }
     public function detailAlbum(Request $req,$albumId){
         $detailfoto = foto::get()->where('albumId',$albumId);
         $album = album::firstwhere('id',$albumId);
@@ -75,13 +80,6 @@ class AlbumController extends Controller
             'nama_album'=>$nama_album,
             'detailfoto'=>$detailfoto
         ]);
-    }
-    public function getAlbumInfo(Request $req){
-        $id = $req->input('idAlbum');
-        $album = album::firstWhere('id', $id);
-        return response()->json([
-            'data' => $album
-        ], 200);
     }
     public function deleteAlbum(Request $req){
         $id = $req->idAlbum;
@@ -95,8 +93,7 @@ class AlbumController extends Controller
             foreach($foto as $a){
                 Foto::firstWhere('id', $a['id'])->delete();
             }
-        }
-
+    }
         $album->delete();
         return back();
     }
